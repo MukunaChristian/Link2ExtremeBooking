@@ -1,0 +1,330 @@
+#home1 {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 86em;
+  margin: auto;
+  margin-bottom: 5em;
+  margin-top: 5em;
+
+  .parent1 {
+    display: grid;
+    border-radius: 1em;
+    gap: 1.5rem;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(2, 100px);
+    padding: 1em;
+    border: 1px solid #494949;
+    max-width: 100%;
+    min-width: 22.5%;
+    margin-top: -1em;
+  }
+
+  .parent3 {
+    display: grid;
+    border-radius: 1em;
+    gap: 1.5rem;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(2, 100px);
+    padding: 1em;
+    border: 1px solid #494949;
+    max-width: 100%;
+    min-width: 22.5%;
+    margin-top: 2em;
+  }
+  .item2 {
+    grid-column: span 3;
+    margin-top: -1em;
+
+    h1 {
+      font-size: 25px;
+      font-weight: 700;
+      line-height: 41.02px;
+      text-align: left;
+    }
+  }
+
+  .item1 img {
+    width: 22em;
+    height: 14em;
+  }
+  .flex-img {
+    display: flex;
+    align-items: center;
+    margin-top: -2em;
+
+    img {
+      width: 1em;
+      height: 1em;
+    }
+  }
+
+  .icon-flex {
+    display: flex;
+    flex-direction: row-reverse;
+    margin: auto;
+
+    img {
+      width: 2em;
+      height: 2em;
+      margin-left: 1em;
+    }
+  }
+  .book-flex1 {
+    position: relative;
+    left: 17.5em;
+    top: -1.5em;
+  }
+
+  .btn-book {
+    width: 150px;
+    height: 30px;
+    background: #494949;
+    border-radius: 1em;
+    color: white;
+    margin-left: auto;
+    margin-top: 2.5em;
+  }
+  .down {
+    margin-top: 2.5em;
+    color: #ff0000;
+  }
+
+  .btn-book:hover {
+    background-color: #333;
+  }
+
+  .item4 {
+    grid-column: 5/7;
+
+    h1 {
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 41.02px;
+      text-align: right;
+    }
+  }
+  .color1 {
+    margin: 0%;
+    background: #efefef;
+    padding: 0.5em;
+    border-radius: 1em;
+  }
+
+  .icon-wrapper {
+    position: relative;
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  .icon-tooltip {
+    visibility: hidden;
+    width: 120px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .icon-wrapper:hover .icon-tooltip {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  @media screen and (max-width: 1500px) {
+    .item4 {
+      grid-column: 5/7;
+    }
+  }
+
+  @media screen and (max-width: 1090px) {
+    .item2 {
+      grid-column: 1/5;
+      grid-row: 3;
+    }
+  }
+
+  @media screen and (max-width: 878px) {
+    .parent1 {
+      grid-template-columns: auto; /* Switch to auto layout */
+      grid-template-rows: auto; /* Allow rows to adjust based on content */
+      height: auto; /* Remove fixed height */
+      width: calc(100vw - 5rem); /* Adjust the width */
+    }
+    .parent3 {
+      grid-template-columns: auto; /* Switch to auto layout */
+      grid-template-rows: auto; /* Allow rows to adjust based on content */
+      height: auto; /* Remove fixed height */
+      width: calc(100vw - 5rem); /* Adjust the width */
+    }
+    .item1 {
+      grid-column: span 8; /* Adjust column span */
+      grid-row: 1; /* Position it on the first row */
+      margin: 0 auto;
+    }
+
+    .item2 {
+      grid-column: 1/7; /* Adjust column span */
+      grid-row: 3; /* Position it on the second row */
+    }
+
+    .item3,
+    .item4 {
+      grid-column: span 8; /* Adjust column span to cover all columns */
+      justify-self: center;
+      grid-row: 4;
+      margin-top: -2em;
+    }
+
+    .icon-flex {
+      img {
+        margin-left: -1.1em;
+      }
+    }
+
+    .btn-book {
+      margin-top: 1em;
+
+      margin-left: 7em;
+    }
+    .title-flex {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      position: relative;
+      gap: 3em;
+      top: 5em;
+      max-width: 40em;
+
+      img {
+        width: 2em;
+        height: 2em;
+      }
+      h1 {
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 46.88px;
+        text-align: left;
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .top-flex {
+      flex-direction: column;
+      align-items: flex-start;
+      width: 80%; /* Adjusted width */
+      max-height: 200px; /* Set max height */
+      overflow-y: auto; /* Add scroll */
+      position: relative; /* Position relative for absolute positioning of arrows */
+    }
+
+    /* Arrow styles */
+    .scroll-arrow {
+      position: absolute;
+      top: 5px; /* Adjust as needed */
+      right: 5px; /* Adjust as needed */
+      width: 20px;
+      height: 20px;
+      background-color: rgba(0, 0, 0, 0.5);
+      cursor: pointer;
+      display: none; /* Initially hide the arrows */
+      margin-top: 2em;
+    }
+
+    .scroll-arrow:hover {
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .scroll-arrow.up {
+      top: 5px; /* Adjust as needed */
+    }
+
+    .scroll-arrow.down {
+      top: auto;
+      bottom: 5px; /* Adjust as needed */
+    }
+
+    .scroll-arrow img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transform: translateY(-50%);
+    }
+
+    .bottom-flex {
+      display: flex;
+      gap: 1em;
+      align-items: flex-start;
+    }
+
+    .img-flex {
+      width: 70%;
+    }
+  }
+
+  .top-flex {
+    display: flex;
+    align-items: center;
+    gap: 3em;
+  }
+  .align {
+    display: flex;
+    margin-right: auto;
+  }
+
+  .top-flex {
+    border-radius: 2em !important;
+    width: 75%;
+    background: white;
+    padding: 0.2em;
+  }
+  .cart-flex {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+  }
+
+  .title-flex {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    top: -1em;
+    img {
+      width: 2em;
+      height: 2em;
+    }
+    h1 {
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 46.88px;
+    }
+  }
+  .box {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    margin: 0%;
+
+    img {
+      width: 2em;
+      height: 2em;
+      margin: 0%;
+    }
+  }
+  .flex1 {
+    display: flex;
+    gap: 2em;
+  }
+}

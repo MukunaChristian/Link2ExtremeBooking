@@ -1,0 +1,32 @@
+.border3 {
+    border: 1px solid #ccc;
+    padding: 10px;
+    overflow: hidden; 
+
+  }
+ 
+ 
+  
+ 
+.gallery {
+    gap: 0.5rem; // Reduce the space between images
+    width: calc(100% - 20px); // Adjusted width to account for padding
+    max-height: 300px; // Set the maximum height of the gallery
+    overflow-y: auto; // Adding vertical scrollbar if needed
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr)); // Four columns layout
+    padding: 10px; // Added padding to keep images away from the border
+  }
+  
+  .gallery img {
+    border: solid 1px #e7e9f0;
+    padding: 0.1em;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: cover;
+    background-color: white;
+    border-radius: 0.4em;
+  }
+  
+  

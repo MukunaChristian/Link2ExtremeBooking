@@ -1,0 +1,26 @@
+.border3 {
+  border: 1px solid #ccc;
+  padding: 10px;
+  overflow: hidden;
+}
+
+.gallery {
+  gap: 0.5rem;
+  width: calc(100% - 20px);
+  max-height: 300px;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  padding: 10px;
+}
+
+.gallery img {
+  border: solid 1px #e7e9f0;
+  padding: 0.1em;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: cover;
+  background-color: white;
+  border-radius: 0.4em;
+}

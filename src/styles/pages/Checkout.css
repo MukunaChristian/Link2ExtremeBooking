@@ -1,0 +1,85 @@
+#home4 {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -5em;
+  max-width: 86em;
+  margin: 0 auto;
+}
+
+#home4 .checkout-cart {
+  display: flex;
+  border-radius: 1em;
+  gap: 5rem;
+  padding: 1em;
+  background: white;
+  width: 90%;
+  margin-top: 5em;
+  height: 40em;
+}
+
+.checkout-raduis {
+  border: 1px solid black;
+  border-radius: 1em;
+  width: 70%;
+  height: 50%;
+  padding: 1em;
+}
+
+.line4 {
+  position: relative;
+  left: -1em;
+  width: 104%;
+  height: 0px;
+  border: 1px solid black;
+  margin: auto;
+}
+
+.flexchecout {
+  display: flex;
+  gap: 1em;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.inputcheck {
+  width: 200px;
+  height: 25px;
+  border-radius: 2em;
+}
+
+.input-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-bottom: 10px; /* Adjust margin as needed */
+}
+
+.input-row label {
+  flex: 0 0 100px; /* Fixed width for labels */
+  margin-right: 10px; /* Adjust margin as needed */
+}
+
+.checkout-cart2 {
+  margin-left: auto;
+  padding: 1em;
+  border: 1px solid black;
+  height: 30em;
+  border-radius: 1em;
+}
+
+.checkout-b {
+  width: 127px;
+  height: 20px;
+  background: #ffb899;
+  color: #ff0000;
+  padding: 5px;
+  border-radius: 1em;
+  text-align: center;
+  margin-top: 1em;
+}

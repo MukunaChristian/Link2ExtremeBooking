@@ -1,0 +1,295 @@
+#home1 {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 86em;
+  margin: auto;
+  margin-bottom: 5em;
+  margin-top: 5em;
+}
+#home1 .parent1 {
+  display: grid;
+  border-radius: 1em;
+  gap: 1.5rem;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(2, 100px);
+  padding: 1em;
+  border: 1px solid #494949;
+  max-width: 100%;
+  min-width: 22.5%;
+  margin-top: -1em;
+}
+#home1 .parent3 {
+  display: grid;
+  border-radius: 1em;
+  gap: 1.5rem;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(2, 100px);
+  padding: 1em;
+  border: 1px solid #494949;
+  max-width: 100%;
+  min-width: 22.5%;
+  margin-top: 2em;
+}
+#home1 .item2 {
+  grid-column: span 3;
+  margin-top: -1em;
+}
+#home1 .item2 h1 {
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 41.02px;
+  text-align: left;
+}
+#home1 .item1 img {
+  width: 22em;
+  height: 14em;
+}
+#home1 .flex-img {
+  display: flex;
+  align-items: center;
+  margin-top: -2em;
+}
+#home1 .flex-img img {
+  width: 1em;
+  height: 1em;
+}
+#home1 .icon-flex {
+  display: flex;
+  flex-direction: row-reverse;
+  margin: auto;
+}
+#home1 .icon-flex img {
+  width: 2em;
+  height: 2em;
+  margin-left: 1em;
+}
+#home1 .book-flex1 {
+  position: relative;
+  left: 17.5em;
+  top: -1.5em;
+}
+#home1 .btn-book {
+  width: 150px;
+  height: 30px;
+  background: #494949;
+  border-radius: 1em;
+  color: white;
+  margin-left: auto;
+  margin-top: 2.5em;
+}
+#home1 .down {
+  margin-top: 2.5em;
+  color: #ff0000;
+}
+#home1 .btn-book:hover {
+  background-color: #333;
+}
+#home1 .item4 {
+  grid-column: 5/7;
+}
+#home1 .item4 h1 {
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 41.02px;
+  text-align: right;
+}
+#home1 .color1 {
+  margin: 0%;
+  background: #efefef;
+  padding: 0.5em;
+  border-radius: 1em;
+}
+#home1 .icon-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-right: 10px;
+}
+#home1 .icon-tooltip {
+  visibility: hidden;
+  width: 120px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+#home1 .icon-wrapper:hover .icon-tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+@media screen and (max-width: 1500px) {
+  #home1 .item4 {
+    grid-column: 5/7;
+  }
+}
+@media screen and (max-width: 1090px) {
+  #home1 .item2 {
+    grid-column: 1/5;
+    grid-row: 3;
+  }
+}
+@media screen and (max-width: 878px) {
+  #home1 .parent1 {
+    grid-template-columns: auto; /* Switch to auto layout */
+    grid-template-rows: auto; /* Allow rows to adjust based on content */
+    height: auto; /* Remove fixed height */
+    width: calc(100vw - 5rem); /* Adjust the width */
+  }
+  #home1 .parent3 {
+    grid-template-columns: auto; /* Switch to auto layout */
+    grid-template-rows: auto; /* Allow rows to adjust based on content */
+    height: auto; /* Remove fixed height */
+    width: calc(100vw - 5rem); /* Adjust the width */
+  }
+  #home1 .item1 {
+    grid-column: span 8; /* Adjust column span */
+    grid-row: 1; /* Position it on the first row */
+    margin: 0 auto;
+  }
+  #home1 .item2 {
+    grid-column: 1/7; /* Adjust column span */
+    grid-row: 3; /* Position it on the second row */
+  }
+  #home1 .item3,
+  #home1 .item4 {
+    grid-column: span 8; /* Adjust column span to cover all columns */
+    justify-self: center;
+    grid-row: 4;
+    margin-top: -2em;
+  }
+  #home1 .icon-flex img {
+    margin-left: -1.1em;
+  }
+  #home1 .btn-book {
+    margin-top: 1em;
+    margin-left: 7em;
+  }
+  #home1 .title-flex {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    gap: 3em;
+    top: 5em;
+    max-width: 40em;
+  }
+  #home1 .title-flex img {
+    width: 2em;
+    height: 2em;
+  }
+  #home1 .title-flex h1 {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 46.88px;
+    text-align: left;
+  }
+}
+@media screen and (max-width: 768px) {
+  #home1 {
+    /* Arrow styles */
+  }
+  #home1 .top-flex {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 80%; /* Adjusted width */
+    max-height: 200px; /* Set max height */
+    overflow-y: auto; /* Add scroll */
+    position: relative; /* Position relative for absolute positioning of arrows */
+  }
+  #home1 .scroll-arrow {
+    position: absolute;
+    top: 5px; /* Adjust as needed */
+    right: 5px; /* Adjust as needed */
+    width: 20px;
+    height: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    display: none; /* Initially hide the arrows */
+    margin-top: 2em;
+  }
+  #home1 .scroll-arrow:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  #home1 .scroll-arrow.up {
+    top: 5px; /* Adjust as needed */
+  }
+  #home1 .scroll-arrow.down {
+    top: auto;
+    bottom: 5px; /* Adjust as needed */
+  }
+  #home1 .scroll-arrow img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transform: translateY(-50%);
+  }
+  #home1 .bottom-flex {
+    display: flex;
+    gap: 1em;
+    align-items: flex-start;
+  }
+  #home1 .img-flex {
+    width: 70%;
+  }
+}
+#home1 .top-flex {
+  display: flex;
+  align-items: center;
+  gap: 3em;
+}
+#home1 .align {
+  display: flex;
+  margin-right: auto;
+}
+#home1 .top-flex {
+  border-radius: 2em !important;
+  width: 75%;
+  background: white;
+  padding: 0.2em;
+}
+#home1 .cart-flex {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+#home1 .title-flex {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  top: -1em;
+}
+#home1 .title-flex img {
+  width: 2em;
+  height: 2em;
+}
+#home1 .title-flex h1 {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 46.88px;
+}
+#home1 .box {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  margin: 0%;
+}
+#home1 .box img {
+  width: 2em;
+  height: 2em;
+  margin: 0%;
+}
+#home1 .flex1 {
+  display: flex;
+  gap: 2em;
+}
