@@ -75,7 +75,7 @@ export default function UserPage2() {
           <img src={user1} alt="" />
         </div>
         <div className="item9">
-          <h1>Additional Add on </h1>
+          <h1>Additional Add On </h1>
           <p>
             his activity offers a personalized media bundle for purchase. It
             consists of a certificate, your images, and a video of you jumping

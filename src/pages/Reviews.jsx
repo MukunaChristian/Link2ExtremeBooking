@@ -104,23 +104,31 @@ export default function Reviews() {
           </div>
 
           <div className="border4">
-
             <div className="reviews-container">
-              <h2>
-                20 Reviews <span className="stars">⭐⭐⭐⭐⭐</span>
-              </h2>
-              <div className="sort-by">
-                <label>Sort By:</label>
-                <select>
-                  <option value="popular">Popular</option>
-                  {/* Add more sorting options here if needed */}
-                </select>
+              <div className="flex-review">
+                <span className="stars">
+                  &#9733;&#9733;&#9733;&#9733;&#9733;
+                </span>
+                <h3>20 Reviews</h3>
+                <div className="sort-by">
+                  <label>Sort By:</label>
+                  <select>
+                    <option value="popular">Popular</option>
+                  </select>
+                </div>
               </div>
+
               <div className="review-list">
                 <div className="review">
                   <h3>Jacob</h3>
-                  <p className="stars">4.5 Stars</p>
-                  <p className="date">1 Week Ago</p>
+                  <div className="flex-start">
+                    <span className="stars">
+                      &#9733;&#9733;&#9733;&#9733;&#9733;
+                    </span>
+                    <p className="stars">4.5 Stars</p>
+                    <p className="date">1 Week Ago</p>
+                  </div>
+
                   <p>
                     We loved our experience at Bloukrans Bungee. It was a really
                     busy, loud, true Bungee atmosphere. The team was excellent,
@@ -129,14 +137,43 @@ export default function Reviews() {
                     locale.
                   </p>
                 </div>
-                <hr className="divider" />
+                <div className="gray-line"></div>
                 <div className="review">
-                  <h3>David</h3>
-                  <p className="stars">4.5 Stars</p>
-                  <p className="date">1 Week Ago</p>
-                  <p>{/* Add David's review text here */}</p>
+                  <h3>Jacob</h3>
+                  <div className="flex-start">
+                    <span className="stars">
+                      &#9733;&#9733;&#9733;&#9733;&#9733;
+                    </span>
+                    <p className="stars">4.5 Stars</p>
+                    <p className="date">1 Week Ago</p>
+                  </div>
+
+                  <p>
+                    We loved our experience at Bloukrans Bungee. It was a really
+                    busy, loud, true Bungee atmosphere. The team was excellent,
+                    the rope is absolutely fantastic, and the fall felt really
+                    good. And oh my word, don't even get me started on their
+                    locale.
+                  </p>
                 </div>
-                {/* Add more reviews here */}
+                <div className="review">
+                  <h3>Jacob</h3>
+                  <div className="flex-start">
+                    <span className="stars">
+                      &#9733;&#9733;&#9733;&#9733;&#9733;
+                    </span>
+                    <p className="stars">4.5 Stars</p>
+                    <p className="date">1 Week Ago</p>
+                  </div>
+
+                  <p>
+                    We loved our experience at Bloukrans Bungee. It was a really
+                    busy, loud, true Bungee atmosphere. The team was excellent,
+                    the rope is absolutely fantastic, and the fall felt really
+                    good. And oh my word, don't even get me started on their
+                    locale.
+                  </p>
+                </div>
               </div>
             </div>
           </div>

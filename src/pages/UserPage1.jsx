@@ -66,8 +66,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-
-      <div className="parent3">
+      <div className="parent11">
         <div className="item1">
           <img src={user1} alt="" />
         </div>
@@ -82,7 +81,8 @@ export default function Home() {
             heights? Look no further than Bloukrans Bungee - the most epic
             bungee jump experience on the planet!
           </p>
-          <h1 className="down">R300.00 per person</h1>
+
+          <h1 className="down">R1600.00 per person</h1>
         </div>
 
         <div className="item4">
@@ -109,11 +109,14 @@ export default function Home() {
               </div>
             </div>
           </div>
+
           <div className="book-flex1">
             <button className="btn-book">Book Now</button>
           </div>
         </div>
       </div>
+
+      
     </main>
   );
 }

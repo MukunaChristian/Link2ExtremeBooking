@@ -9,7 +9,7 @@ export default function BottomNav() {
   return location.pathname === "/client_portal/" ? null : (
     <div className="bottom-nav">
       <div className="botttom-image-nav">
-        <div>
+        <div className="text-center">
         <a href={link} target="_blank" rel="noopener noreferrer">
             L2X
           </a>

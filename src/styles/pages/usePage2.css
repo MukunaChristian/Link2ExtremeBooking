@@ -56,7 +56,7 @@
 }
 #home2 .item10 img {
   width: 18em;
-  height: 10em;
+  height: 14em;
 }
 #home2 .item3 {
   grid-column: span 6;
@@ -126,8 +126,8 @@
   padding: 1em;
 }
 #home2 .share img {
-  width: 18.62px;
-  height: 18.75px;
+  width: 30px;
+  height: 30px;
   cursor: pointer;
 }
 #home2 .page-icon-flex {
@@ -171,10 +171,10 @@
 }
 #home2 .time-slot-table th,
 #home2 .time-slot-table td {
-  padding: 9em;
+  padding: 10em;
   text-align: center;
-  font-weight: 650;
-  font-size: 500px;
+  font-weight: 750;
+  font-size: 900px;
 }
 #home2 .time-slot-table th {
   background-color: #f2f2f2;

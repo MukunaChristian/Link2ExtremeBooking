@@ -9,7 +9,7 @@ export default function Checkout() {
 
         <div className="booking-cart-flex">
         
-          <h3>Cart</h3>
+          <h3>Checkout</h3>
         </div>
       </div>
       <div className="checkout-cart">
