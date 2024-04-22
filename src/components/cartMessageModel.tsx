@@ -4,14 +4,15 @@ const CartMessageModal = ({ onClose, onApplyDiscount, activity }) => {
   const [title, setTitle] = useState("");
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
+  const [email, setEmail] = useState("");
+  const [id, setId] = useState("");
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Applying discount with data:", { title, name, surname });
 
-    // Pass the entered data and activity to the parent component
-    onApplyDiscount({ title, name, surname }, activity);
-    // Close the modal after applying the discount
+    onApplyDiscount({ title, name}, activity);
     onClose();
   };
 
@@ -19,7 +20,7 @@ const CartMessageModal = ({ onClose, onApplyDiscount, activity }) => {
     <div className="modal-overlay">
       <div className="modal">
         <button className="close-btn" onClick={onClose}>
-          &times; {/* Unicode character for 'x' */}
+          &times; 
         </button>
         <h2>Apply Discount</h2>
         <p>
@@ -35,10 +36,10 @@ const CartMessageModal = ({ onClose, onApplyDiscount, activity }) => {
               value={title}
               onChange={(e) => setTitle(e.target.value)}
             >
-              <option value="mr">Pensioner.</option>
-              <option value="ms">Pensioner.</option>
-              <option value="mrs">Pensioner.</option>
-              <option value="dr">Pensioner.</option>
+              <option value="Pensioner">Pensioner.</option>
+              <option value="Pensioner">Pensioner.</option>
+              <option value="Pensioner">Pensioner.</option>
+              <option value="Pensioner">Pensioner.</option>
             </select>
           </div>
           <h1>Details</h1>
@@ -53,7 +54,7 @@ const CartMessageModal = ({ onClose, onApplyDiscount, activity }) => {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="surname">Surname:</label>
+            <label htmlFor="text">Surname:</label>
             <input
               className="input-modal"
               type="text"
@@ -63,23 +64,23 @@ const CartMessageModal = ({ onClose, onApplyDiscount, activity }) => {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="surname">Email:</label>
+            <label htmlFor="email">Email:</label>
             <input
               className="input-modal"
               type="email"
-              id="surname"
-              value={surname}
-              onChange={(e) => setSurname(e.target.value)}
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="form-group">
-            <label htmlFor="surname">Surname:</label>
+            <label htmlFor="text">ID:</label>
             <input
               className="input-modal"
               type="text"
-              id="surname"
-              value={surname}
-              onChange={(e) => setSurname(e.target.value)}
+              id="id"
+              value={id}
+              onChange={(e) => setId(e.target.value)}
             />
           </div>
           <div className="margin">

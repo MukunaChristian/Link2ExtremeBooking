@@ -62,7 +62,7 @@ export default function Cart() {
             <div className="header4">Item</div>
             <div className="header">Actions</div>
           </div>
-          <div className="line4"></div>
+          <div className="line6"></div>
 
 
           <div className="grid1">
@@ -100,7 +100,6 @@ export default function Cart() {
                     <p>
                       {discount.name} <span className="discount-title">{discount.title}</span>
                       {discount.surname}
-                      {/* Add the Edit and Delete buttons next to the name */}
                       <button onClick={() => handleEditDiscount(index)}>
                         Edit
                       </button>

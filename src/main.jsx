@@ -22,8 +22,8 @@ const root = createRoot(container);
 root.render(
   <Router>
     <Routes>
-      <Route element={<WebLayout />}>
-      <Route path="/" element={<Page2/>} />
+      <Route element={<WebLayout/>}>
+      <Route path="/" element={<Page/>} />
 
       </Route>
     </Routes>
