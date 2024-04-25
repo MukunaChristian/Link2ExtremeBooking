@@ -5,9 +5,7 @@ import WebLayout from "./layouts/WebLayout";
 import Page2 from "./pages/usePage2";
 import Cart from "./pages/cart";
 import Chekcout from "./pages/Checkout";
-import Requirement from "./pages/Requirements"
-import Gallery from "./pages/Gallery";
-import Reviews from "./pages/Reviews";
+
 import "./scss/pages/UserPage1.scss";
 import "./scss/pages/usePage2.scss";
 import "./scss/components/cartMessageModel.scss";
@@ -23,7 +21,7 @@ root.render(
   <Router>
     <Routes>
       <Route element={<WebLayout/>}>
-      <Route path="/" element={<Page/>} />
+      <Route path="/" element={<Page2/>} />
 
       </Route>
     </Routes>

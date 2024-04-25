@@ -398,11 +398,18 @@
   border: none;
   cursor: pointer;
 }
+#home2 .video {
+  width: 100%;
+  height: 95;
+}
 #home2 .button:hover {
   border-left: 1px solid black;
   border-right: 1px solid black;
   border-top: 1px solid black;
   border-bottom: 2px solid white;
+}
+#home2 .active {
+  border: 1px solid black;
 }
 #home2 .border {
   border: 1px solid black;
@@ -410,6 +417,7 @@
   width: 115%;
   height: 800%;
   margin: 0%;
+  overflow-y: auto;
 }
 #home2 .border p {
   margin-bottom: 10px;
@@ -478,6 +486,10 @@
   margin-right: 10px;
   justify-content: baseline;
 }
+#home2 .input-fl {
+  width: 2.5em;
+  height: 1.9em;
+}
 #home2 .pickup-date input {
   padding: 1em;
   width: 120px;
@@ -491,7 +503,7 @@
 }
 #home2 .time-slot-table th,
 #home2 .time-slot-table td {
-  padding: 10em;
+  padding: 12em;
   text-align: center;
   font-weight: 750;
   font-size: 900px;
@@ -504,16 +516,19 @@
 }
 #home2 .time-slot-table th,
 #home2 .time-slot-table td {
-  height: 5.5em;
-  padding: 0em;
-  font-size: 9px;
+  height: 5em;
+  padding: 0.3em;
+  font-size: 12px;
   border: none;
 }
-#home2 .time-slot-table .full {
-  color: red;
+#home2 .time-slot-table th {
+  font-size: 12px;
 }
-#home2 .time-slot-table .space {
+#home2 .slot-unavailable {
   color: green;
+}
+#home2 .slot-available {
+  color: red;
 }
 #home2 .total-flex {
   display: flex;
