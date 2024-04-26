@@ -77,17 +77,17 @@ export default function Home() {
                       </div>
                       <div className=" box">
                         <img src={img4} alt="" />
-                        <h3>I’m Local</h3>
+                        <h3>Pensioner</h3>
                       </div>
                     </div>
                     <div className="flex1">
                       <div className=" box">
                         <img src={img3} alt="" />
-                        <h3>I’m Local</h3>
+                        <h3>Children U12 </h3>
                       </div>
                       <div className=" box">
                         <img src={img5} alt="" />
-                        <h3>I’m Local</h3>
+                        <h3>Specials</h3>
                       </div>
                     </div>
                   </div>

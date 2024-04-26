@@ -169,13 +169,13 @@ button {
   text-align: right;
 }
 #home1 .color1 {
-  width: 80%;
+  width: 87%;
   margin: 0%;
   background: #efefef;
   padding: 0.5em;
   border-radius: 1em;
   position: relative;
-  left: 4em;
+  left: 2em;
 }
 #home1 .icon-wrapper {
   position: relative;
@@ -359,6 +359,7 @@ button {
   gap: 5px;
   align-items: center;
   margin: 0%;
+  width: 10em;
 }
 #home1 .box img {
   width: 2em;
@@ -633,6 +634,49 @@ button {
   gap: 10px;
 }
 
+@media (max-width: 1800px) {
+  .parent2 {
+    grid-template-columns: auto; /* Switch to auto layout */
+    grid-template-rows: auto; /* Allow rows to adjust based on content */
+    height: auto; /* Remove fixed height */
+    width: calc(99vw - 5rem) !important; /* Adjust the width */
+  }
+  .item6 {
+    display: none;
+  }
+  .item8 {
+    grid-column: span 8 !important; /* Adjust column span */
+    grid-row: 1; /* Position it on the first row */
+    margin: 0 auto;
+  }
+  .item8 img {
+    width: 23em !important;
+  }
+  .item9 {
+    grid-column: 1/8 !important; /* Adjust column span */
+    grid-row: 4 !important; /* Position it on the second row */
+  }
+  .item10 {
+    grid-column: 1/8 !important; /* Adjust column span */
+    grid-row: 6 !important; /* Position it on the second row */
+  }
+  .item3 {
+    grid-column: 1/8 !important; /* Adjust column span */
+    grid-row: 3; /* Position it on the second row */
+  }
+  .item5 {
+    grid-row: 8 !important;
+  }
+  .border {
+    height: fit-content !important;
+  }
+  .use-flex h3 {
+    width: 6em;
+  }
+  .gal-img-home {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjust minmax values as needed */
+  }
+}
 #home3 {
   padding: 1em;
   display: flex;
