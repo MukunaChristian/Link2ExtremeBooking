@@ -17,13 +17,14 @@ import user from "../assets/user-svgrepo-com.png";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
+const views = ["arrangements", "requirements", "gallery", "reviews"];
 
 export default function UserPage2() {
   const [currentView, setCurrentView] = useState("arrangements");
   const [activityDetails, setActivityDetails] = useState(null);
   const [adults, setAdults] = useState(1); // Starting with 1 adult
   const [children, setChildren] = useState(0); // Starting with 0 children
-  const [date, setDate] = useState('');
+  const [date, setDate] = useState("");
 
   console.log;
 
@@ -42,6 +43,20 @@ export default function UserPage2() {
 
     fetchActivityDetails();
   }, []);
+
+  const [currentView1, setCurrentView1] = useState(views[0]); // start with the first view
+
+  const nextView = () => {
+    const currentIndex = views.indexOf(currentView);
+    const nextIndex = (currentIndex + 1) % views.length; // wrap around using modulo
+    setCurrentView(views[nextIndex]);
+  };
+
+  const previousView = () => {
+    const currentIndex = views.indexOf(currentView);
+    const prevIndex = (currentIndex - 1 + views.length) % views.length; // wrap around using modulo
+    setCurrentView(views[prevIndex]);
+  };
 
   const [scheduleData, setScheduleData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -90,22 +105,22 @@ export default function UserPage2() {
   if (isLoading) {
     return <div>Loading...</div>;
   }
-   // Default time, adjust as necessary
+  // Default time, adjust as necessary
 
   const adultPrice = 1600; // Price per adult
   const childPrice = 800; // Price per child, adjust as necessary
 
   // Function to handle number input changes
   const handleAdultChange = (e) => {
-      setAdults(Number(e.target.value));
+    setAdults(Number(e.target.value));
   };
 
   const handleChildrenChange = (e) => {
-      setChildren(Number(e.target.value));
+    setChildren(Number(e.target.value));
   };
 
   const handleDateChange = (e) => {
-      setDate(e.target.value);
+    setDate(e.target.value);
   };
 
   // Calculate total price
@@ -190,7 +205,13 @@ export default function UserPage2() {
               Reviews
             </button>
           </div>
-
+          <div className="button-container-view">
+            <button className="position" onClick={previousView}>Previous</button>
+            <button className="button1 active">
+              {currentView.charAt(0).toUpperCase() + currentView.slice(1)}{" "}
+            </button>
+            <button className="position2"onClick={nextView}>Next</button>
+          </div>
           <div className="border">
             {currentView === "arrangements" && (
               <>
@@ -409,51 +430,83 @@ export default function UserPage2() {
         <div className="item6">
           <h1>Find Availability For</h1>
           <div className="show-flex">
-                <div className="page-icon-flex">
-                    <input className="input-fl" type="number" value={adults} onChange={handleAdultChange} /> Adult
-                </div>
-                <h3>and</h3>
-                <div className="page-icon-flex">
-                    <input className="input-fl" type="number" value={children} onChange={handleChildrenChange} /> Children
-                </div>
-                <h3>on</h3>
-                <div className="pickup-date">
-                    <input type="date" id="pickupDate" name="pickupDate" value={date} onChange={handleDateChange} />
-                </div>
+            <div className="page-icon-flex">
+              <input
+                className="input-fl"
+                type="number"
+                value={adults}
+                onChange={handleAdultChange}
+              />{" "}
+              Adult
             </div>
+            <h3>and</h3>
+            <div className="page-icon-flex">
+              <input
+                className="input-fl"
+                type="number"
+                value={children}
+                onChange={handleChildrenChange}
+              />{" "}
+              Children
+            </div>
+            <h3>on</h3>
+            <div className="pickup-date">
+              <input
+                type="date"
+                id="pickupDate"
+                name="pickupDate"
+                value={date}
+                onChange={handleDateChange}
+              />
+            </div>
+          </div>
 
           <div className="time-slot">
-                <h3>Time Slots</h3>
-                <div className="time-slot-table">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Time/Day</th>
-                                {scheduleData.length > 0 && Object.keys(scheduleData[0]).filter(key => key !== 'time').map((day) => (
-                                    <th key={day}>{day}</th>
-                                ))}
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {scheduleData.map((row, index) => (
-                                <tr key={index}>
-                                    <td>{row.time}</td>
-                                    {Object.keys(row).filter(key => key !== 'time').map(day => (
-                                        <td key={day} className={row[day] === '-' ? 'slot-unavailable' : 'slot-available'}>
-                                            {row[day] === '-' ? 'SPACE' : row[day]}
-                                        </td>
-                                    ))}
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
+            <h3>Time Slots</h3>
+            <div className="time-slot-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Time/Day</th>
+                    {scheduleData.length > 0 &&
+                      Object.keys(scheduleData[0])
+                        .filter((key) => key !== "time")
+                        .map((day) => <th key={day}>{day}</th>)}
+                  </tr>
+                </thead>
+                <tbody>
+                  {scheduleData.map((row, index) => (
+                    <tr key={index}>
+                      <td>{row.time}</td>
+                      {Object.keys(row)
+                        .filter((key) => key !== "time")
+                        .map((day) => (
+                          <td
+                            key={day}
+                            className={
+                              row[day] === "-"
+                                ? "slot-unavailable"
+                                : "slot-available"
+                            }
+                          >
+                            {row[day] === "-" ? "SPACE" : row[day]}
+                          </td>
+                        ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
+          </div>
 
           <div className="total">
-          <h1>R{totalPrice} in total</h1>
+            <h1>R{totalPrice} in total</h1>
             <div className="text-flex">
-                For <h3>{adults} Adult{adults !== 1 && 's'}</h3> and <h3>{children} Children</h3>
+              For{" "}
+              <h3>
+                {adults} Adult{adults !== 1 && "s"}
+              </h3>{" "}
+              and <h3>{children} Children</h3>
             </div>
             <div className="text-flex">
               at <h3>09:00</h3> on<h3>2024-04-03</h3>
