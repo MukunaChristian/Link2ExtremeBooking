@@ -132,7 +132,7 @@ export default function UserPage2() {
         <img className="arrow" src={arrow} alt="" />
 
         <div className="booking-cart-flex">
-          <img src={cart} alt="" />
+          <img className="arrow" src={cart} alt="" />
           <h3>Cart</h3>
         </div>
       </div>
@@ -206,11 +206,15 @@ export default function UserPage2() {
             </button>
           </div>
           <div className="button-container-view">
-            <button className="position" onClick={previousView}>Previous</button>
+            <button className="position" onClick={previousView}>
+              Previous
+            </button>
             <button className="button1 active">
               {currentView.charAt(0).toUpperCase() + currentView.slice(1)}{" "}
             </button>
-            <button className="position2"onClick={nextView}>Next</button>
+            <button className="position2" onClick={nextView}>
+            Previous
+            </button>
           </div>
           <div className="border">
             {currentView === "arrangements" && (
@@ -426,6 +430,9 @@ export default function UserPage2() {
             )}
           </div>
         </div>
+        <div className="parent-btn">
+          <button className="view-btn">view availability</button>
+        </div>
 
         <div className="item6">
           <h1>Find Availability For</h1>
@@ -522,6 +529,7 @@ export default function UserPage2() {
             </div>
           </div>
         </div>
+        <div className="parent-btn"></div>
       </div>
     </main>
   );
