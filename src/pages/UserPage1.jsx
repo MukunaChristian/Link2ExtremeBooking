@@ -4,7 +4,7 @@ import img3 from "../assets/Ellipse 22.png";
 import img4 from "../assets/Group1.png";
 import img5 from "../assets/kid.png";
 import location from "../assets/location.png";
-import cart from "../assets/cart.png";
+import cart from "../assets/cart.png";import imageBack from "../assets/6b.jpg";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -35,9 +35,16 @@ export default function Home() {
       }
     }
 
-    fetchSitesAndActivities(1); // replace `1` with the actual operator ID
+    fetchSitesAndActivities(1); 
   }, []);
   return (
+    <div className="top">
+      <div className="top-bar">
+        <div className="top-bar-text">LX2booking</div>
+
+        <img src={cart} alt="Cart" />
+      </div>
+      <img src={imageBack} alt="Descriptive Alt Text" className="top-image" />{" "}
     <main id="home1">
       {sites.map((site, siteIndex) => (
         <div className="site-section" key={siteIndex}>
@@ -45,15 +52,12 @@ export default function Home() {
             <h1 className="align">
               {site.site_name} - {site.site_location}
             </h1>
-            <div className="cart-flex">
-              <img src={cart} alt="Cart" />
-              <h3>Cart</h3>
-            </div>
+           
           </div>
           <div className="activities-container">
             {site.activities.map((activity, activityIndex) => (
-              <div className="parent1" key={activityIndex}>
-                <div className="item1">
+              <div className="big-one" key={activityIndex}>
+                <div className="itm">
                   <img src={user1} alt={activity.activity_name} />
                 </div>
                 <div className="item2">
@@ -73,21 +77,21 @@ export default function Home() {
                     <div className="flex1">
                       <div className=" box">
                         <img src={img2} alt="" />
-                        <h3>I’m Local</h3>
+                        <p>I’m Local</p>
                       </div>
                       <div className=" box">
                         <img src={img4} alt="" />
-                        <h3>Pensioner</h3>
+                        <p>Pensioner</p>
                       </div>
                     </div>
                     <div className="flex1">
                       <div className=" box">
                         <img src={img3} alt="" />
-                        <h3>Children U12 </h3>
+                        <p>Children U12 </p>
                       </div>
                       <div className=" box">
                         <img src={img5} alt="" />
-                        <h3>Specials</h3>
+                        <p>Specials</p>
                       </div>
                     </div>
                   </div>
@@ -101,5 +105,6 @@ export default function Home() {
         </div>
       ))}
     </main>
+    </div>
   );
 }

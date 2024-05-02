@@ -74,8 +74,11 @@
 }
 #home2 .button {
   padding: 10px 20px;
-  border: none;
   cursor: pointer;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 29.3px;
+  text-align: left;
 }
 #home2 .video {
   width: 100%;
@@ -230,12 +233,14 @@
   margin-top: -2em;
 }
 #home2 .btn-now {
-  border-radius: 1em;
+  border-radius: 9px;
   background: #494949;
-  width: 9em;
+  width: 160px;
   height: 30px;
   color: white;
   margin-left: auto;
+  font-size: 20px;
+  font-weight: 600;
 }
 #home2 .view-btn {
   width: 14rem;

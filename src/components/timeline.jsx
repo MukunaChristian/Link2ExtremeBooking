@@ -97,90 +97,105 @@ export default function UserPage2() {
 
   const totalPrice = adults * adultPrice + children * childPrice;
 
+  if (scheduleData.length === 0) {
+    return <p>No schedule data available.</p>;
+  }
+
+  const dayAbbreviations = {
+    Monday: 'Mo',
+    Tuesday: 'Tu',
+    Wednesday: 'We',
+    Thursday: 'Th',
+    Friday: 'Fr',
+    Saturday: 'Sa',
+    Sunday: 'Su'
+};
   return (
     <main id="home4">
       <div className="parent4">
-      <div className="timeline-child">
-  <h1>Find Availability For</h1>
-  <div className="show-flex">
-    <div className="page-icon-flex">
-      <input
-        className="input-fl"
-        type="number"
-        value={adults}
-        onChange={handleAdultChange}
-      /> Adult
-    </div>
-    <h3>and</h3>
-    <div className="page-icon-flex">
-      <input
-        className="input-fl"
-        type="number"
-        value={children}
-        onChange={handleChildrenChange}
-      /> Children
-    </div>
-    <h3>on</h3>
-    <div className="pickup-date">
-      <input
-        type="date"
-        id="pickupDate"
-        name="pickupDate"
-        value={date}
-        onChange={handleDateChange}
-      />
-    </div>
-  </div>
-
-  <div className="time-slot">
-    <h3>Time Slots</h3>
-    <div className="time-slot-table">
-      <table>
-        <thead>
-          <tr>
-            <th>Time/Day</th>
-            {scheduleData.length > 0 &&
-              Object.keys(scheduleData[0]).filter(key => key !== "time").map(day => <th key={day}>{day}</th>)}
-          </tr>
-        </thead>
-        <tbody>
-          {scheduleData.map((row, index) => (
-            <tr key={index}>
-              <td>{row.time}</td>
-              {Object.keys(row).filter(key => key !== "time").map(day => (
-                <td key={day} className={row[day] === "-" ? "slot-unavailable" : "slot-available"}>
-                  {row[day]}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <div className="total">
-    <h1>R{totalPrice} in total</h1>
-    <div className="text-flex">
-      For <h3>{adults} Adult{adults !== 1 && "s"}</h3> and <h3>{children} Children</h3>
-    </div>
-    <div className="text-flex">
-      at <h3>09:00</h3> on <h3>2024-04-03</h3>
-    </div>
-    <div className="total-flex">
-      <img src={img2} alt="" />
-      <img src={img4} alt="" />
-      <img src={img5} alt="" />
-      <img src={img3} alt="" />
-    </div>
-    <div className="now-btn">
-      <button className="btn-now">Add to Cart</button>
-    </div>
-  </div>
-</div>
-
+        <div className="timeline-child">
+          <h1>Find Availability For</h1>
+          <div className="show-flex">
+            <div className="page-icon-flex">
+              <input
+                className="input-fl"
+                type="number"
+                value={adults}
+                onChange={handleAdultChange}
+              />{" "}
+              Adult
+            </div>
+            <h3>and</h3>
+            <div className="page-icon-flex">
+              <input
+                className="input-fl"
+                type="number"
+                value={children}
+                onChange={handleChildrenChange}
+              />{" "}
+              Children
+            </div>
+            <h3>on</h3>
+            <div className="pickup-date">
+              <input
+                type="date"
+                id="pickupDate"
+                name="pickupDate"
+                value={date}
+                onChange={handleDateChange}
+              />
+            </div>
+          </div>
+          <div className="time-slot">
+            <h3>Time Slots</h3>
+            <div className="schedule-grid">
+                <div className="grid-header">
+                    <div className="grid-cell time-header">Time</div>
+                    {scheduleData.length > 0 && 
+                        Object.keys(scheduleData[0])
+                            .filter(key => key !== "time")
+                            .map(day => <div key={day} className="grid-cell">{dayAbbreviations[day]}</div>)
+                    }
+                </div>
+                {scheduleData.map((row, index) => (
+                    <div key={index} className="grid-row">
+                        <div className="grid-cell time-cell">{row.time}</div>
+                        {Object.keys(row)
+                            .filter(key => key !== "time")
+                            .map(day => (
+                                <div key={day} className={`grid-cell ${row[day] === "-" ? "slot-full" : "slot-space"}`}>
+                                    {row[day] === "-" ? "Full" : "Space"}
+                                </div>
+                            ))
+                        }
+                    </div>
+                ))}
+            </div>
         </div>
-      
+          <div className="total">
+            <h1>R{totalPrice} in total</h1>
+            <div className="text-flex">
+              For{" "}
+              <h3>
+                {adults} Adult{adults !== 1 && "s"}
+              </h3>{" "}
+              and <h3>{children} Children</h3>
+            </div>
+            <div className="text-flex">
+              at <h3>09:00</h3> on <h3>2024-04-03</h3>
+            </div>
+            <div className="total-flex">
+              <img src={img2} alt="" />
+              <img src={img4} alt="" />
+              <img src={img5} alt="" />
+              <img src={img3} alt="" />
+            </div>
+            <div className="now-btn">
+              <button className="btn-now">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
   );
 }

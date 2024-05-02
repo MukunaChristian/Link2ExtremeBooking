@@ -34,6 +34,12 @@
   height: 0px;
   border: 1px solid black;
   margin: auto;
+  top: -28px;
+}
+
+.title-up {
+  position: relative;
+  top: -19px;
 }
 
 .flexchecout {
@@ -56,12 +62,13 @@
 .input-row {
   display: flex;
   align-items: center;
-  gap: 0.5em;
-  margin-bottom: 10px; /* Adjust margin as needed */
+  gap: 1em;
+  margin-bottom: 10px;
+  width: 50em;
 }
 
 .input-row label {
-  flex: 0 0 100px; /* Fixed width for labels */
+  flex: 0 0 70px; /* Fixed width for labels */
   margin-right: 10px; /* Adjust margin as needed */
 }
 
@@ -71,6 +78,12 @@
   border: 1px solid black;
   height: 30em;
   border-radius: 1em;
+}
+
+.center {
+  text-align: center;
+  position: relative;
+  top: -1.4em;
 }
 
 .checkout-b {

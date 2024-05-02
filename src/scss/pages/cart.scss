@@ -19,6 +19,19 @@
   height: 40em;
 }
 
+.btn-open {
+  position: relative;
+  top: 1em;
+  text-decoration: underline;
+  left: 20px;
+}
+.number{
+  padding: 7px;
+}
+
+.btn-open:hover {
+color: blue;
+}
 .raduis {
   border: 1px solid black;
   border-radius: 1em;
@@ -27,7 +40,7 @@
 
 .table-header {
   border-radius: 5px;
-  padding: 8px; // Adjust padding as needed
+  padding: 9px; // Adjust padding as needed
   width: 100%;
 
   th {
@@ -94,9 +107,9 @@
   width: 110%;
   height: 0px;
   border: 1px solid black;
-  margin: auto;
+  top: -2em;
 }
-.line6{
+.line6 {
   position: relative;
   left: 0.01em;
   width: 100%;
@@ -119,6 +132,18 @@
   }
 }
 
+.flex-total {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box; /* Adjust box model */
+}
+
+.flex-down h3 {
+  margin: 0; /* Remove margins from <h3> if affecting spacing */
+  padding: 0; /* Remove padding if any */
+  line-height: 1.9; /* Optimize line height */
+}
+
 .flex-down {
   display: flex;
   align-items: center;
@@ -127,15 +152,18 @@
   top: 15em;
 }
 .btn-cart {
-  height: 30px;
+  height: 45px;
   background: #5c5c5c;
   color: white;
   position: relative;
   top: 1em;
-  left: 5em;
+  left: 1.5em;
   margin: auto;
-  width: 15em;
+  width: 13em;
   border-radius: 1em;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 41.02px;
 }
 
 .btn-cart:hover {
@@ -155,14 +183,21 @@
 .header2 {
   position: relative;
   left: 9em;
+  top: 4px;
 }
 .header3 {
   position: relative;
-  left: 10em;
+  left: 11em;
+  top: 4px;
 }
 .header4 {
   position: relative;
-  left: 5.5em;
+  left: 6em;
+  top: 4px;
+}
+.header-p{
+  position: relative;
+  top: -22px;
 }
 
 .table1,
@@ -174,6 +209,7 @@
   display: flex;
   align-items: center; /* Align items vertically */
   padding: 10px;
+  gap: 8px;
 }
 .table6 {
   grid-column: 1;
@@ -197,11 +233,18 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .header {
-  text-align: center;
+  position: relative;
+  left: 5.5em;
+  top: 4px;
+}
+.header5 {
+  position: relative;
+  left: 3em;
+  top: 4px;
 }
 .table-img {
   position: relative;
@@ -210,7 +253,7 @@
     width: 5em;
   }
 }
-.discount-item{
+.discount-item {
   width: 15em;
 }
 .discount-title {
@@ -220,11 +263,11 @@
   border-radius: 0.6em;
   background: #d9d9d9;
 }
-.table-title-flex{
+.table-title-flex {
   position: relative;
   top: 6em;
   right: 37em;
-  img{
+  img {
     width: 2em;
     cursor: pointer;
   }

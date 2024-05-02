@@ -1,4 +1,4 @@
-import arrow from "../assets/arrow-left.png";
+import arrow from "../assets/arrow-circle.png";
 
 export default function Checkout() {
 
@@ -14,7 +14,7 @@ export default function Checkout() {
       </div>
       <div className="checkout-cart">
         <div className="checkout-raduis">
-          <h3>Provide us with your billing details</h3>
+          <h3 className="title-up">Provide us with your billing details</h3>
           <div className="line4"></div>
           <h3>Enter primary booking details</h3>
           <div className="input-container">
@@ -34,7 +34,7 @@ export default function Checkout() {
         </div>
         <div className="flex-card">
           <div className="checkout-cart2">
-            <h3>Payment</h3>
+            <h3 className="center">Payment</h3>
             <div className="line2"></div>
             <div className="flex-d">
               <p>Total Purchase</p>

@@ -1,4 +1,4 @@
-import arrow from "../assets/arrow-left.png";
+import arrow from "../assets/arrow-circle.png";
 import cart from "../assets/cart.png";
 import user1 from "../assets/Rectangle 4573.png";
 import email from "../assets/email.png";
@@ -133,7 +133,6 @@ export default function UserPage2() {
 
         <div className="booking-cart-flex">
           <img className="arrow" src={cart} alt="" />
-          <h3>Cart</h3>
         </div>
       </div>
       <div className="parent2">
@@ -446,7 +445,7 @@ export default function UserPage2() {
               />{" "}
               Adult
             </div>
-            <h3>and</h3>
+            
             <div className="page-icon-flex">
               <input
                 className="input-fl"
@@ -456,7 +455,7 @@ export default function UserPage2() {
               />{" "}
               Children
             </div>
-            <h3>on</h3>
+            <h3>Date</h3>
             <div className="pickup-date">
               <input
                 type="date"
