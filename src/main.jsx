@@ -22,7 +22,7 @@ root.render(
   <Router>
     <Routes>
       <Route element={<WebLayout/>}>
-      <Route path="/" element={<Chekcout/>} />
+      <Route path="/" element={<Cart/>} />
 
       </Route>
     </Routes>

@@ -20,6 +20,12 @@
     margin-top: 5em;
   }
 
+  .slot-selected {
+    background-color: #4caf50; /* or any color that fits your design */
+    color: white;
+    cursor: pointer;
+  }
+
   .item8 {
     grid-column: span 2;
 
@@ -230,16 +236,17 @@
     padding: 0.3em;
     font-size: 12px;
     border: none;
+    cursor: pointer;
   }
   .time-slot-table th {
     font-size: 12px;
   }
 
   .slot-unavailable {
-    color: green;
+    color: red;
   }
   .slot-available {
-    color: red;
+    color: green;
   }
 
   .total-flex {

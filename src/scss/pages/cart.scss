@@ -254,7 +254,15 @@ color: blue;
   }
 }
 .discount-item {
-  width: 15em;
+  width: 13em;
+  display: flex;
+}
+.f{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  left: 1.5em;
+  top: 0.5em;
 }
 .discount-title {
   padding: 0.5em;

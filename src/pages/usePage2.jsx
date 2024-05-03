@@ -15,6 +15,8 @@ import shirt from "../assets/shirt-svgrepo-com.png";
 import shop from "../assets/shopping-bag-3-svgrepo-com.png";
 import user from "../assets/user-svgrepo-com.png";
 import axios from "axios";
+import { addDays, format } from "date-fns";
+
 import { useEffect, useState } from "react";
 
 const views = ["arrangements", "requirements", "gallery", "reviews"];
@@ -24,9 +26,44 @@ export default function UserPage2() {
   const [activityDetails, setActivityDetails] = useState(null);
   const [adults, setAdults] = useState(1); // Starting with 1 adult
   const [children, setChildren] = useState(0); // Starting with 0 children
-  const [date, setDate] = useState("");
+  const [operatorId, setOperatorId] = useState(1);
+  const [activityId, setActivityId] = useState(1);
+  const [selectedTime, setSelectedTime] = useState("");
+  const [selectedDate, setSelectedDate] = useState("");
+  const [hasNextDate, setHasNextDate] = useState(false);
+  const [hasPreviousDate, setHasPreviousDate] = useState(false);
+  const [isDataAvailable, setIsDataAvailable] = useState(true); // Assume data is available initially
 
-  console.log;
+  const [date, setDate] = useState("");
+  const fetchActivitySchedule = async (selectedDate) => {
+    setIsLoading(true);
+    const endpoint = `https://staging.link2extreme.com/api/booking/${operatorId}/activities/${activityId}/schedule/${selectedDate}`;
+
+    try {
+      const response = await axios.get(endpoint);
+      if (response.data.activity_schedule.length > 0) {
+        formatScheduleData(response.data.activity_schedule);
+        setIsDataAvailable(true);
+      } else {
+        setIsDataAvailable(false);
+      }
+    } catch (error) {
+      console.error("Error fetching activity schedule:", error);
+      setIsDataAvailable(false);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchActivitySchedule(date);
+  }, [date]); // Refetch whenever the date changes
+
+  useEffect(() => {
+    setSelectedTime("");
+    setSelectedDate("");
+    fetchActivitySchedule(date); // Trigger fetch when date changes
+  }, [date, activityId, operatorId]); // Add activityId and operatorId to dependency array
 
   useEffect(() => {
     const fetchActivityDetails = async () => {
@@ -79,22 +116,26 @@ export default function UserPage2() {
   }, []);
 
   const formatScheduleData = (schedule) => {
-    // Extract all unique time slots from the schedule
+    if (!schedule || !Array.isArray(schedule)) {
+      console.error("Invalid or empty schedule data:", schedule);
+      return;
+    }
+
     const allTimes = new Set();
     schedule.forEach((day) => {
-      Object.keys(day.Time_Slots).forEach((time) => {
-        allTimes.add(time);
-      });
+      if (day.time_slots && typeof day.time_slots === "object") {
+        Object.keys(day.time_slots).forEach((time) => {
+          allTimes.add(time);
+        });
+      }
     });
 
-    // Sort times for consistent ordering
     const sortedTimes = Array.from(allTimes).sort();
-
-    // Map each time to each day to create rows for the table
     const rowData = sortedTimes.map((time) => {
       const row = { time };
       schedule.forEach((day) => {
-        row[day.Day] = day.Time_Slots[time] || "-";
+        row[day.day] =
+          day.time_slots && day.time_slots[time] === 1 ? "Available" : "Full";
       });
       return row;
     });
@@ -120,7 +161,25 @@ export default function UserPage2() {
   };
 
   const handleDateChange = (e) => {
+    console.log("Date change event fired");
+    e.preventDefault();
     setDate(e.target.value);
+    console.log("New Date Set: ", e.target.value);
+  };
+  const handleTimeSlotSelection = (time, day) => {
+    setSelectedTime(time);
+    setSelectedDate(day); // You might need to map the 'day' back to a specific date
+  };
+  const handleNextDay = () => {
+    if (!hasNextDate) return;
+    const newDate = addDays(new Date(date), 1);
+    setDate(format(newDate, "yyyy-MM-dd"));
+  };
+
+  const handlePreviousDay = () => {
+    if (!hasPreviousDate) return;
+    const newDate = addDays(new Date(date), -1);
+    setDate(format(newDate, "yyyy-MM-dd"));
   };
 
   // Calculate total price
@@ -212,7 +271,7 @@ export default function UserPage2() {
               {currentView.charAt(0).toUpperCase() + currentView.slice(1)}{" "}
             </button>
             <button className="position2" onClick={nextView}>
-            Previous
+              Previous
             </button>
           </div>
           <div className="border">
@@ -445,7 +504,7 @@ export default function UserPage2() {
               />{" "}
               Adult
             </div>
-            
+
             <div className="page-icon-flex">
               <input
                 className="input-fl"
@@ -469,6 +528,15 @@ export default function UserPage2() {
 
           <div className="time-slot">
             <h3>Time Slots</h3>
+            <div className="navigation-buttons">
+              <button onClick={handlePreviousDay} disabled={!hasPreviousDate}>
+                Previous
+              </button>
+              <button onClick={handleNextDay} disabled={!hasNextDate}>
+                Next
+              </button>
+            </div>
+
             <div className="time-slot-table">
               <table>
                 <thead>
@@ -481,25 +549,48 @@ export default function UserPage2() {
                   </tr>
                 </thead>
                 <tbody>
-                  {scheduleData.map((row, index) => (
-                    <tr key={index}>
-                      <td>{row.time}</td>
-                      {Object.keys(row)
-                        .filter((key) => key !== "time")
-                        .map((day) => (
-                          <td
-                            key={day}
-                            className={
-                              row[day] === "-"
-                                ? "slot-unavailable"
-                                : "slot-available"
-                            }
-                          >
-                            {row[day] === "-" ? "SPACE" : row[day]}
-                          </td>
-                        ))}
+                  {isDataAvailable ? (
+                    scheduleData.map((row, index) => (
+                      <tr key={index}>
+                        <td>{row.time}</td>
+                        {Object.keys(row)
+                          .filter((key) => key !== "time")
+                          .map((day) => (
+                            <td
+                              key={day}
+                              className={
+                                row[day] === "Full"
+                                  ? "slot-unavailable"
+                                  : row[day] === "Available" &&
+                                    row.time === selectedTime &&
+                                    day === selectedDate
+                                  ? "slot-selected"
+                                  : "slot-available"
+                              }
+                              onClick={() =>
+                                row[day] === "Available" &&
+                                handleTimeSlotSelection(row.time, day)
+                              }
+                            >
+                              {row[day]}
+                            </td>
+                          ))}
+                      </tr>
+                    ))
+                  ) : (
+                    <tr>
+                      <td
+                        colSpan={
+                          scheduleData.length > 0
+                            ? Object.keys(scheduleData[0]).length
+                            : 1
+                        }
+                      >
+                        No activities scheduled for this date. Please select
+                        another date.
+                      </td>
                     </tr>
-                  ))}
+                  )}
                 </tbody>
               </table>
             </div>
@@ -515,8 +606,9 @@ export default function UserPage2() {
               and <h3>{children} Children</h3>
             </div>
             <div className="text-flex">
-              at <h3>09:00</h3> on<h3>2024-04-03</h3>
+              at <h3>{selectedTime}</h3> on<h3>{selectedDate}</h3>
             </div>
+
             <div className="total-flex">
               <img src={img2} alt="" />
               <img src={img4} alt="" />

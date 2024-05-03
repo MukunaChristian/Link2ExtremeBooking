@@ -414,6 +414,11 @@ button {
   border: 1px solid black;
   margin-top: 5em;
 }
+#home2 .slot-selected {
+  background-color: #4caf50; /* or any color that fits your design */
+  color: white;
+  cursor: pointer;
+}
 #home2 .item8 {
   grid-column: span 2;
 }
@@ -598,15 +603,16 @@ button {
   padding: 0.3em;
   font-size: 12px;
   border: none;
+  cursor: pointer;
 }
 #home2 .time-slot-table th {
   font-size: 12px;
 }
 #home2 .slot-unavailable {
-  color: green;
+  color: red;
 }
 #home2 .slot-available {
-  color: red;
+  color: green;
 }
 #home2 .total-flex {
   display: flex;
@@ -1125,7 +1131,16 @@ button {
 }
 
 .discount-item {
-  width: 15em;
+  width: 13em;
+  display: flex;
+}
+
+.f {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  left: 1.5em;
+  top: 0.5em;
 }
 
 .discount-title {
