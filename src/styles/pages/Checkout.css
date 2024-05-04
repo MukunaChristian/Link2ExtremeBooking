@@ -42,34 +42,33 @@
   top: -19px;
 }
 
-.flexchecout {
-  display: flex;
-  gap: 1em;
+.form-container {
+  width: 100%;
+  padding: 20px;
 }
 
-.input-container {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
+.form-row {
+  margin-bottom: 15px; /* Adds vertical spacing between each form row */
 }
 
-.inputcheck {
+.form-row label {
+  display: inline-block;
+  margin-right: 10px; /* Reduces the horizontal space between the label and the input */
+  vertical-align: middle; /* Centers the label relative to the input */
+}
+
+.form-input {
   width: 200px;
-  height: 25px;
   border-radius: 2em;
-}
-
-.input-row {
-  display: flex;
-  align-items: center;
-  gap: 1em;
-  margin-bottom: 10px;
-  width: 50em;
+  margin-right: 20px; /* Spacing after each input before the next label */
+  padding: 8px 12px; /* Slightly more padding within input fields for a better user experience */
+  vertical-align: middle; /* Ensures that the input fields align correctly with the labels */
 }
 
 .input-row label {
-  flex: 0 0 70px; /* Fixed width for labels */
-  margin-right: 10px; /* Adjust margin as needed */
+  display: inline-block;
+  margin-right: 10px; /* Reduces space between the label and the input */
+  vertical-align: middle; /* Aligns labels with inputs vertically */
 }
 
 .checkout-cart2 {

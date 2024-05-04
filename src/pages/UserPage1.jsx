@@ -5,7 +5,6 @@ import img4 from "../assets/Group1.png";
 import img5 from "../assets/kid.png";
 import location from "../assets/location.png";
 import cart from "../assets/cart.png";import imageBack from "../assets/6b.jpg";
-import axios from "axios";
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -39,11 +38,6 @@ export default function Home() {
   }, []);
   return (
     <div className="top">
-      <div className="top-bar">
-        <div className="top-bar-text">LX2booking</div>
-
-        <img src={cart} alt="Cart" />
-      </div>
       <img src={imageBack} alt="Descriptive Alt Text" className="top-image" />{" "}
     <main id="home1">
       {sites.map((site, siteIndex) => (

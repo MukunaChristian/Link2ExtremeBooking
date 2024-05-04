@@ -1,18 +1,17 @@
 .top {
-  padding: 1em;
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 90em;
+  max-width: 250em !important;
   margin: auto;
 }
 .top-image {
-  width: 98em;
+  width: 100em !important;
   height: 20em;
-  display: block;
   border-radius: 0%;
   position: relative;
-  top: 8em;
+  top: 0.01em;
+  
 }
 
 .top-bar {
@@ -40,8 +39,6 @@
   align-items: center;
   max-width: 86em;
   margin: auto;
-  margin-bottom: 5em;
-  margin-top: 5em;
   gap: 2em;
 
   .big-one {

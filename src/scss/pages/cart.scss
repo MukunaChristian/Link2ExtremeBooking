@@ -237,9 +237,7 @@ color: blue;
 }
 
 .header {
-  position: relative;
-  left: 5.5em;
-  top: 4px;
+
 }
 .header5 {
   position: relative;
@@ -254,8 +252,10 @@ color: blue;
   }
 }
 .discount-item {
-  width: 13em;
+  width: 20em;
   display: flex;
+  margin: 0; /* Remove margins from <h3> if affecting spacing */
+  padding: 0; /* Remove padding if any */
 }
 .f{
   display: flex;
@@ -265,11 +265,21 @@ color: blue;
   top: 0.5em;
 }
 .discount-title {
-  padding: 0.5em;
-  width: 560px;
-  height: -1px;
+  padding: 0.2em;
+  width: 5em;
+  height: 20px;
   border-radius: 0.6em;
   background: #d9d9d9;
+  text-align: center;
+  
+}
+.gray{
+  display: flex;
+  align-items: center;
+}
+
+.arrow1{
+  width: 4em !important;
 }
 .table-title-flex {
   position: relative;

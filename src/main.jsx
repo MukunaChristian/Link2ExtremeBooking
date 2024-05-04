@@ -13,6 +13,7 @@ import "./scss/pages/Checkout.scss";
 import "./scss/pages/gallery.scss";
 import "./scss/pages/reviews.scss"
 import "./scss/partials/bottombar.scss"
+import "./scss/partials/topbar.scss"
 import "./scss/components/timeline.scss"
 import "./styles/global.css";
 
@@ -22,7 +23,7 @@ root.render(
   <Router>
     <Routes>
       <Route element={<WebLayout/>}>
-      <Route path="/" element={<Cart/>} />
+      <Route path="/" element={<Page/>} />
 
       </Route>
     </Routes>

@@ -1,0 +1,29 @@
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: red;
+  padding: 0.5em;
+  height: 2em;
+}
+
+.topbar-left {
+  font-size: 24px;
+}
+
+.topbar-right img {
+  width: 30px;
+  height: auto;
+  cursor: pointer;
+}
+
+.logo {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 35.16px;
+  text-align: left;
+}
+
+.cart-icon {
+  width: 2em;
+}

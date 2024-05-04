@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import CartMessageModal from "../components/cartMessageModel";
 import b from "../assets/Vector.png";
-import arrow from "../assets/arrow-circle.png";
+import pen from "../assets/pen.png"
+import arrow from "../assets/com.png";
 import cart from "../assets/cart.png";
 import { useEffect } from "react";
 import axios from "axios";
@@ -9,13 +10,11 @@ import axios from "axios";
 export default function Cart() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [bungeeJumpDiscountData, setBungeeJumpDiscountData] = useState([]);
-  const [setSkywalkDiscountData] = useState([]);
   const [selectedActivity, setSelectedActivity] = useState("");
   const [cartData, setCartData] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [selectedDiscountIndex, setSelectedDiscountIndex] = useState(null); // To track the index of the selected discount
-  const [currentDiscount, setCurrentDiscount] = useState(null);
+  const [, setIsLoading] = useState(true);
+  const [, setError] = useState(null);
+  const [selectedDiscountIndex] = useState(null); // To track the index of the selected discount
 
   useEffect(() => {
     const fetchCartData = async () => {
@@ -69,7 +68,7 @@ export default function Cart() {
   //   closeModal();
   // };
 
-  const handleApplyDiscount = (data, activity) => {
+  const handleApplyDiscount = (data) => {
     if (selectedDiscountIndex !== null) {
       const updatedDiscounts = [...bungeeJumpDiscountData];
       updatedDiscounts[selectedDiscountIndex] = data; // Replace the existing discount with the edited one
@@ -85,7 +84,7 @@ export default function Cart() {
       {cartData && (
         <>
           <div className="table-title-flex">
-            <img className="arrow" src={arrow} alt="" />
+            <img className="arrow1" src={arrow} alt="" />
 
             <div className="booking-cart-flex"></div>
           </div>
@@ -122,17 +121,15 @@ export default function Cart() {
                       Children
                     </div>
                     <div className="table3">
-                      <p>Price R{item.activity_price.toFixed(2)}</p>
+                      <p>R{item.activity_price.toFixed(2)}</p>
                     </div>
                     <div className="table4">
                       <span className="child-number">1</span>{" "}
-                      {/* Assuming quantity is always 1, modify if necessary */}
                     </div>
                     <div className="table5">
                       <img className="cart-img" src={b} alt="" />
                     </div>
                     <div className="table6">
-                      {/* Assuming dynamic discount display per item */}
                       <div className="f">
                         {item.clients_details.map((client, clientIndex) => (
                           <div key={clientIndex} className="discount-item">
@@ -145,21 +142,33 @@ export default function Cart() {
                                 ) =>
                                   discountValue > 0 && (
                                     <li key={discountIndex}>
-                                      {discountType}: {discountValue}%
-                                      <button
-                                        onClick={() =>
-                                          handleEditDiscount(client)
-                                        }
-                                      >
-                                        Edit
-                                      </button>
-                                      <button
-                                        onClick={() =>
-                                          handleDeleteDiscount(discountIndex)
-                                        }
-                                      >
-                                        Delete
-                                      </button>
+                                      <div className="gray">
+                                        <div className="discount-title">
+                                          {discountType}
+                                        </div>
+                                        <button
+                                          onClick={() =>
+                                            handleEditDiscount(client)
+                                          }
+                                        >
+                                           <img
+                                            className="cart-img"
+                                            src={pen}
+                                            alt=""
+                                          />
+                                        </button>
+                                        <button
+                                          onClick={() =>
+                                            handleDeleteDiscount(discountIndex)
+                                          }
+                                        >
+                                          <img
+                                            className="cart-img"
+                                            src={b}
+                                            alt=""
+                                          />
+                                        </button>
+                                      </div>
                                     </li>
                                   )
                               )}
