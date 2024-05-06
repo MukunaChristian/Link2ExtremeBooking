@@ -66,18 +66,21 @@ label {
 }
 
 .btn-modal[type=submit] {
-  width: 200px;
+  width: 250px;
   background: #5c5c5c;
   height: 50px;
   border-radius: 50px;
   color: white;
   cursor: pointer;
-  margin: auto;
+  margin: 0% auto !important;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 41.02px;
 }
 
 .margin {
   width: 13em;
-  margin: auto;
+  margin: auto !important;
 }
 
 button[type=submit]:hover {

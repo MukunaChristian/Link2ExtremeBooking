@@ -11,10 +11,10 @@ import "./scss/pages/usePage2.scss";
 import "./scss/components/cartMessageModel.scss";
 import "./scss/pages/Checkout.scss";
 import "./scss/pages/gallery.scss";
-import "./scss/pages/reviews.scss"
-import "./scss/partials/bottombar.scss"
-import "./scss/partials/topbar.scss"
-import "./scss/components/timeline.scss"
+import "./scss/pages/reviews.scss";
+import "./scss/partials/bottombar.scss";
+import "./scss/partials/topbar.scss";
+import "./scss/components/timeline.scss";
 import "./styles/global.css";
 
 const container = document.getElementById("root");
@@ -22,9 +22,11 @@ const root = createRoot(container);
 root.render(
   <Router>
     <Routes>
-      <Route element={<WebLayout/>}>
-      <Route path="/" element={<Page/>} />
-
+      <Route element={<WebLayout />}>
+        <Route path="" element={<Page />} />
+        <Route path="Page2" element={<Page2 />} />
+        <Route path="Cart" element={<Cart />} />
+        <Route path="Chekcout" element={<Chekcout />} />
       </Route>
     </Routes>
   </Router>

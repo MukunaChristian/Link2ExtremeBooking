@@ -43,10 +43,7 @@
     position: relative;
     top: 5em;
   }
-  .arrow {
-    width: 3em;
-    height: 3em;
-  }
+
 
   .booking-cart-flex {
     display: flex;
@@ -180,6 +177,16 @@
     height: 37px;
   }
 
+  .left-size{
+    width: 2em;
+  }
+  .navigation-buttons{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    top: 3em;
+  }
+
   .total {
     h1 {
       font-size: 30px;
@@ -211,7 +218,12 @@
 
   .time-slot-table table {
     width: 100%;
+    height: 5em !important;
     border-collapse: collapse;
+  }
+  .time-slot-table  {
+  
+    height: 28em !important;
   }
 
   .time-slot-table th,

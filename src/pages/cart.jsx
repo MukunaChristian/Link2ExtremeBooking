@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import CartMessageModal from "../components/cartMessageModel";
 import b from "../assets/Vector.png";
 import pen from "../assets/pen.png"
 import arrow from "../assets/com.png";
-import cart from "../assets/cart.png";
 import { useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 
 export default function Cart() {
@@ -15,6 +15,7 @@ export default function Cart() {
   const [, setIsLoading] = useState(true);
   const [, setError] = useState(null);
   const [selectedDiscountIndex] = useState(null); // To track the index of the selected discount
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchCartData = async () => {
@@ -79,12 +80,20 @@ export default function Cart() {
     }
   };
 
+  const goTCheckout = () => {
+    navigate("/Chekcout"); // Use the path as defined in your <Route> configuration
+  };
+
+  const goBack = () => {
+    navigate(-1); // This navigates back to the previous page
+  };
+
   return (
     <main id="home3">
       {cartData && (
         <>
           <div className="table-title-flex">
-            <img className="arrow1" src={arrow} alt="" />
+            <img className="arrow1" onClick={goBack} src={arrow} alt="" />
 
             <div className="booking-cart-flex"></div>
           </div>
@@ -206,7 +215,7 @@ export default function Cart() {
                   </div>
                 </div>
               </div>
-              <button className="btn-cart">Continue to Checkout</button>
+              <button className="btn-cart" onClick={goTCheckout}>Continue to Checkout</button>
             </div>
           </div>
           {isModalOpen && (

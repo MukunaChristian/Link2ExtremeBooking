@@ -1,5 +1,4 @@
 import arrow from "../assets/arrow-circle.png";
-import cart from "../assets/cart.png";
 import user1 from "../assets/Rectangle 4573.png";
 import email from "../assets/email.png";
 import whatsapp from "../assets/whatsapp.png";
@@ -14,8 +13,12 @@ import weather from "../assets/weather-symbol-8-svgrepo-com.png";
 import shirt from "../assets/shirt-svgrepo-com.png";
 import shop from "../assets/shopping-bag-3-svgrepo-com.png";
 import user from "../assets/user-svgrepo-com.png";
+import left from "../assets/left.png"
+import right from "../assets/right.png"
+
 import axios from "axios";
 import { addDays, format } from "date-fns";
+import { useNavigate } from "react-router-dom";
 
 import { useEffect, useState } from "react";
 
@@ -32,9 +35,27 @@ export default function UserPage2() {
   const [selectedDate, setSelectedDate] = useState("");
   const [hasNextDate, setHasNextDate] = useState(false);
   const [hasPreviousDate, setHasPreviousDate] = useState(false);
-  const [isDataAvailable, setIsDataAvailable] = useState(true); // Assume data is available initially
+  const [isDataAvailable, setIsDataAvailable] = useState(true);
+  const navigate = useNavigate();
+
+  // Assume data is available initially
 
   const [date, setDate] = useState("");
+  const checkDateAvailability = async (date) => {
+    try {
+      const response = await axios.get(
+        `https://staging.link2extreme.com/api/booking/${operatorId}/activities/${activityId}/schedule/${format(
+          date,
+          "yyyy-MM-dd"
+        )}`
+      );
+      return response.data.activity_schedule.length > 0;
+    } catch (error) {
+      console.error("Error checking date availability:", error);
+      return false; // Assume date is unavailable in case of error
+    }
+  };
+
   const fetchActivitySchedule = async (selectedDate) => {
     setIsLoading(true);
     const endpoint = `https://staging.link2extreme.com/api/booking/${operatorId}/activities/${activityId}/schedule/${selectedDate}`;
@@ -44,12 +65,21 @@ export default function UserPage2() {
       if (response.data.activity_schedule.length > 0) {
         formatScheduleData(response.data.activity_schedule);
         setIsDataAvailable(true);
+
+        // Check availability for next and previous dates
+        const today = new Date(selectedDate);
+        setHasNextDate(await checkDateAvailability(addDays(today, 1)));
+        setHasPreviousDate(await checkDateAvailability(addDays(today, -1)));
       } else {
         setIsDataAvailable(false);
+        setHasNextDate(false);
+        setHasPreviousDate(false);
       }
     } catch (error) {
       console.error("Error fetching activity schedule:", error);
       setIsDataAvailable(false);
+      setHasNextDate(false);
+      setHasPreviousDate(false);
     } finally {
       setIsLoading(false);
     }
@@ -80,8 +110,6 @@ export default function UserPage2() {
 
     fetchActivityDetails();
   }, []);
-
-  const [currentView1, setCurrentView1] = useState(views[0]); // start with the first view
 
   const nextView = () => {
     const currentIndex = views.indexOf(currentView);
@@ -182,17 +210,24 @@ export default function UserPage2() {
     setDate(format(newDate, "yyyy-MM-dd"));
   };
 
-  // Calculate total price
+  console.log("Has Next Date:", hasNextDate);
+  console.log("Has Previous Date:", hasPreviousDate);
+
   const totalPrice = adults * adultPrice + children * childPrice;
 
+  const goTCart = () => {
+    navigate("/Cart"); // Use the path as defined in your <Route> configuration
+  };
+
+  const goBack = () => {
+    navigate(-1); // This navigates back to the previous page
+  };
   return (
     <main id="home2">
       <div className="booking-title-flex">
-        <img className="arrow" src={arrow} alt="" />
+        <img className="arrow1" onClick={goBack} src={arrow} alt="" />
 
-        <div className="booking-cart-flex">
-          <img className="arrow" src={cart} alt="" />
-        </div>
+        <div className="booking-cart-flex"></div>
       </div>
       <div className="parent2">
         <div className="item8">
@@ -530,10 +565,11 @@ export default function UserPage2() {
             <h3>Time Slots</h3>
             <div className="navigation-buttons">
               <button onClick={handlePreviousDay} disabled={!hasPreviousDate}>
-                Previous
+              <img className="left-size" src={left} alt="" />{" "}
               </button>
               <button onClick={handleNextDay} disabled={!hasNextDate}>
-                Next
+              <img className="left-size" src={right} alt="" />{" "}
+
               </button>
             </div>
 
@@ -616,7 +652,9 @@ export default function UserPage2() {
               <img src={img3} alt="" />
             </div>
             <div className="now-btn">
-              <button className="btn-now">Add to Cart</button>
+              <button onClick={goTCart} className="btn-now">
+                Add to Cart
+              </button>
             </div>
           </div>
         </div>

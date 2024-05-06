@@ -13,7 +13,7 @@ export default function BottomNav() {
         <a href={link} target="_blank" rel="noopener noreferrer">
             L2X
           </a>
-          <span> {year} &copy; </span>
+          <span className="colorb" color="black"> {year} &copy; </span>
          
         </div>
        

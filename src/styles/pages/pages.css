@@ -8,11 +8,33 @@
 }
 
 .top-image {
-  width: 100em !important;
+  width: 160em !important;
   height: 20em;
   border-radius: 0%;
   position: relative;
-  top: 0.01em;
+  object-fit: cover;
+  aspect-ratio: 700/800 !important;
+}
+
+.background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 24em !important;
+  background: linear-gradient(0deg, #292929 5.52%, rgba(143, 143, 143, 0) 100%);
+}
+
+.overlay-text {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff; /* White text color */
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  z-index: 10;
 }
 
 .top-bar {
@@ -54,7 +76,7 @@
   max-width: 100%;
   min-width: 22.5%;
   margin-top: -1em;
-  margin-bottom: 2em;
+  margin-bottom: 1.9em;
 }
 #home1 .big-one {
   display: grid;
@@ -114,12 +136,12 @@
   top: -1.5em;
 }
 #home1 .btn-book {
-  width: 160px;
-  height: 30px;
+  width: 166px;
+  height: 37px;
   background: #494949;
   border-radius: 9px;
   color: white;
-  margin-top: 2em;
+  margin-top: 1.9em;
   font-size: 20px;
   font-weight: 600;
 }
@@ -140,13 +162,19 @@
   line-height: 41.02px;
   text-align: right;
 }
-#home1 .color1 {
-  width: 87%;
+#home1 .box1 {
+  width: 75%;
+  height: 9em;
   background: #efefef;
   padding: 1em;
   border-radius: 1em;
   position: relative;
-  left: 2em;
+  left: 5em;
+}
+#home1 .title2 {
+  position: relative;
+  left: 1.4em;
+  top: -9px;
 }
 #home1 .icon-wrapper {
   position: relative;
@@ -208,7 +236,7 @@
     margin-left: -1.1em;
   }
   #home1 .btn-book {
-    margin-top: 1em;
+    margin-top: 3em;
     margin-left: 7em;
   }
   #home1 .title-flex {
@@ -334,6 +362,9 @@
 #home1 .flex1 {
   display: flex;
   gap: 2em;
+  position: relative;
+  top: -1em;
+  left: 1.5em;
 }
 
 #home2 {
@@ -377,10 +408,6 @@
   justify-content: space-between;
   position: relative;
   top: 5em;
-}
-#home2 .arrow {
-  width: 3em;
-  height: 3em;
 }
 #home2 .booking-cart-flex {
   display: flex;
@@ -501,6 +528,15 @@
   width: 38px;
   height: 37px;
 }
+#home2 .left-size {
+  width: 2em;
+}
+#home2 .navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  top: 3em;
+}
 #home2 .total h1 {
   font-size: 30px;
   font-weight: 700;
@@ -526,7 +562,11 @@
 }
 #home2 .time-slot-table table {
   width: 100%;
+  height: 5em !important;
   border-collapse: collapse;
+}
+#home2 .time-slot-table {
+  height: 28em !important;
 }
 #home2 .time-slot-table th,
 #home2 .time-slot-table td {
@@ -1099,6 +1139,7 @@
 
 .arrow1 {
   width: 4em !important;
+  cursor: pointer;
 }
 
 .table-title-flex {

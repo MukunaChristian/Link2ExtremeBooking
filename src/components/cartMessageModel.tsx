@@ -57,6 +57,8 @@ const handleSubmit = (e) => {
               <option value="Child Under 12">Child Under 12</option>
             </select>
           </div>
+          <h1>Details</h1>
+
           <div className="form-group">
             <label htmlFor="name">Name:</label>
             <input className="input-modal" type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} />
@@ -73,7 +75,9 @@ const handleSubmit = (e) => {
             <label htmlFor="id">ID:</label>
             <input className="input-modal" type="text" id="id" value={id} onChange={(e) => setId(e.target.value)} />
           </div>
-          <button className="btn-modal" type="submit">Apply</button>
+          <div className='margin'>
+          <button className="btn-modal" type="submit">Apply Discount</button>
+          </div>
         </form>
       </div>
     </div>

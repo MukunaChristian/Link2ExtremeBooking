@@ -3,7 +3,7 @@
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: rgb(192, 184, 184);
+  background-color: rgb(179, 172, 172);
   z-index: 100;
 }
 
@@ -15,6 +15,10 @@
   padding: 0.5em;
   align-items: center;
   display: flex;
+}
+
+.colorb {
+  color: black !important;
 }
 
 .botttom-image-nav span {
@@ -55,9 +59,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: red;
+  background-color: rgb(179, 172, 172);
   padding: 0.5em;
   height: 2em;
+  position: fixed;
+  width: 100vw;
+  z-index: 100;
 }
 
 .topbar-left {
@@ -77,6 +84,8 @@
   text-align: left;
 }
 
-.cart-icon {
+.cart_icon {
   width: 2em;
+  position: relative;
+  left: -3em;
 }

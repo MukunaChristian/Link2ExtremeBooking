@@ -40,10 +40,6 @@
   position: relative;
   top: 5em;
 }
-#home2 .arrow {
-  width: 3em;
-  height: 3em;
-}
 #home2 .booking-cart-flex {
   display: flex;
   align-items: center;
@@ -163,6 +159,15 @@
   width: 38px;
   height: 37px;
 }
+#home2 .left-size {
+  width: 2em;
+}
+#home2 .navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  top: 3em;
+}
 #home2 .total h1 {
   font-size: 30px;
   font-weight: 700;
@@ -188,7 +193,11 @@
 }
 #home2 .time-slot-table table {
   width: 100%;
+  height: 5em !important;
   border-collapse: collapse;
+}
+#home2 .time-slot-table {
+  height: 28em !important;
 }
 #home2 .time-slot-table th,
 #home2 .time-slot-table td {
